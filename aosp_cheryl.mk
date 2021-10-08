@@ -24,14 +24,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common AOSP stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+TARGET_USES_AOSP_RECOVERY := true
+TARGET_BOOT_ANIMATION_RES := 1440
+TARGET_GAPPS_ARCH := arm64
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
 
 # Inherit device configuration
 $(call inherit-product, device/razer/cheryl/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_cheryl
+PRODUCT_NAME := aosp_cheryl
 PRODUCT_DEVICE := cheryl
 PRODUCT_BRAND := razer
 PRODUCT_MODEL := Phone
